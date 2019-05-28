@@ -6,6 +6,14 @@
   "bin": {
     "ccb": "./command.js"
   },
+  "bugs": {
+    "url": "https://github.com/Hunter-Gu/cc-builder/issues"
+  },
+  "homepage": "https://github.com/Hunter-Gu/cc-builder",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hunter-Gu/cc-builder"
+  },
   "scripts": {
     "postinstall": "tsc",
     "release": "standard-version"
@@ -82,6 +90,6 @@
     "webpack-merge": "^4.2.1",
     "webpack-notifier": "^1.7.0"
   },
-  "author": "Hunter <1737087925@qq.com>",
+  "author": "Hunter <gujiacheng94@163.com>",
   "license": "MIT"
 }
