@@ -1,0 +1,15 @@
+[{
+  "name": "src",
+  "template": "loading-partial",
+  "temps": ["library", "local", "temp", "build-templates", "packages"],
+  "platforms": [{
+    "buildPath": "release",
+    "platform": "web-mobile",
+    "sfcPath": "release-sfc",
+    "buildParams": {
+      "webOrientation": "Landscape"
+    },
+    "publicPath": "/test-static/"
+  }],
+  "app": "/Applications/CocosCreator.app/Contents/MacOS/CocosCreator"
+}]
