@@ -1,6 +1,6 @@
 {
   "name": "cc-builder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cocos Creator cmd builder tool",
   "main": "index.js",
   "bin": {
