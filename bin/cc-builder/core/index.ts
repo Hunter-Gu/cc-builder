@@ -4,7 +4,7 @@ import util = require('../utils');
 import config = require('./config');
 import { exec, IPlatform } from './exec';
 
-const CONFIG_FILE = config.default.configFile;
+const CONFIG_FILE: string[] = config.default.configFile;
 
 export interface IConfig {
   name: string[] | string;
@@ -15,13 +15,30 @@ export interface IConfig {
   [name: string]: any;
 }
 
-let configs: IConfig[];
 
-if (util.isFile(util.resolve(CONFIG_FILE))) {
-  configs = require(util.resolve(CONFIG_FILE));
+
+let configs: IConfig[];
+const requireConfig = function (): string {
+  return CONFIG_FILE.filter((file) => {
+    file = util.resolve(file)
+    if (util.isFile(file)) return !!file
+    else return false
+  })[0]
+}
+
+const configFile = requireConfig()
+
+if (!configFile) {
+  console.error(`[Error]: Can't find config file [${CONFIG_FILE}]`.red.bold)
+  process.exit(1)
+} else {
+  configs = require(util.resolve(configFile))
 }
 
 function start() {
+  if (!Array.isArray(configs))
+    configs = [configs]
+
   configs.forEach(config => {
     const {
       name: prjNames,
