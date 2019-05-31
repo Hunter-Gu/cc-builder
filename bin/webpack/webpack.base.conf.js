@@ -4,7 +4,7 @@ const base = require('./base')
 const loaders = require('./loaders')
 const plugins = require('./plugins')
 const loaderWithPlugins = require('./loader-with-plugins')
-const { getFilesByExt, getFilename } = require('./utils')
+const { getFilesByExt, getFilename, curRoot } = require('./utils')
 
 const configs = []
 
@@ -37,6 +37,9 @@ configs.push(Object.assign({}, base, {
     modules: ['node_modules'],
     mainFields: ['main', 'module', 'browser'],
     extensions: ['.js', '.json', '.ts']
+  },
+  resolveLoader: {
+    modules: [curRoot('node_modules')],
   },
   externals: config.externals,
   module: {

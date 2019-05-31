@@ -24,19 +24,7 @@ exports.getJsLoaders = function (cacheDir = true) {
     use: ["thread-loader", {
       loader: 'babel-loader',
       options: {
-        cacheDirectory: cacheDir,
-        "presets": [
-          [
-            "@babel/preset-env",
-            {
-              "modules": false
-            }
-          ]
-        ],
-        "plugins": [
-          "@babel/plugin-syntax-dynamic-import",
-          "@babel/plugin-proposal-export-default-from"
-        ]
+        cacheDirectory: cacheDir
       },
     }],
     exclude: /node_modules/
