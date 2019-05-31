@@ -1,5 +1,17 @@
 # Change Log
 
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## 1.0.1 (2019-05-31)
+
+feature:
+
+- 配置文件支持 ccrc.json 和 ccrc.js 两种类型， 以 ccrc.json 优先
+
+fix:
+
+- 编译错误时， 应该退出运行
+
 # 1.0.0 (2019-05-10)
 
 feature:
