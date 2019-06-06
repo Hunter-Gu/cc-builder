@@ -138,7 +138,7 @@ function parseSfc (js: string, buildPath: string) {
     traverse(_ast, {
       enter (path) {
         if (t.isCallExpression(path.parent) && t.isIdentifier(path.node, { name: 'window'})) {
-          path.node.name = 'this'
+          path.node.name = 'vm'
         } else if (t.isStringLiteral(path.node, { value: CANVAS_ID })) {
           (<t.StringLiteral>path.node).value = gameName
         }
