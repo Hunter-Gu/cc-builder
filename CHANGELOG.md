@@ -1,6 +1,27 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+## 1.0.3 (2019-06-06)
+
+fix:
+
+- 编译成 Vue 的 SFC 组件时， 将 main.js 中最外层 IIF 的 window 参数修改为变量 vm， 而不再是 this 对象， 因为当前的 this 不是组件的上下文。 所以使用时， 需要传递 vm 参数， 方式如下：
+
+```js
+export default {
+  name: '',
+  mounted () {
+    this.main(this)
+  },
+  methods: {
+    // vm 必须有， 且必须名为 vm
+    main (vm) {
+      // main.js 编译后会需要变量 vm
+      __cc__require__('main.js')
+    }
+  }
+}
+```
+
 
 ## 1.0.2 (2019-05-31)
 
