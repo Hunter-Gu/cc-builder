@@ -89,7 +89,7 @@ platforms 属性的 externalConfig 字段， 用于指定编译时是否使用�
 
 其中 packages 表示用于自定义扩展包， 具体请看[文档](https://docs.cocos.com/creator/manual/zh/extension/your-first-extension.html)。 扩展包不是构建时必须的， 所以有可能不涉及。
 
-### 额外配置参数
+### 额外配置参数
 
 注意上述每个平台下的 config.json 文件， 该文件是编译不同平台时的[构建参数](https://docs.cocos.com/creator/manual/zh/publish/publish-in-command-line.html#%E6%9E%84%E5%BB%BA%E5%8F%82%E6%95%B0)文件， 通过 platforms 的 externalConfig 指定是否使用该文件。
 
@@ -194,7 +194,23 @@ export interface IConfig {
 
 ### `context` 参数
 
-当被编译为 vue 组件后， main.js 中的 context 参数是当前 vue 的组件实例。
+当被编译为 vue 组件后， main.js 中的 context 参数是变量 vm 的值， 所以可以将当前 vue 的组件实例对象传入， 通过如下方式：
+
+```js
+export default {
+  name: '',
+  mounted () {
+    this.main(this)
+  },
+  methods: {
+    // vm 必须有
+    main (vm) {
+      // main.js 编译后会需要变量 vm
+      __cc__require__('main.js')
+    }
+  }
+}
+```
 
 ## publicPath
 
