@@ -1,5 +1,10 @@
 # Change Log
 
+## 1.0.4-0 (2019-06-19)
+
+- 将 package.json 中所有 dependencies 移到 devDependencies 中
+- postinstall 先执行 `npm install`
+
 ## 1.0.3 (2019-06-06)
 
 fix:
