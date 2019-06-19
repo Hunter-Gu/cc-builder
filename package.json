@@ -15,7 +15,7 @@
     "url": "https://github.com/Hunter-Gu/cc-builder"
   },
   "scripts": {
-    "postinstall": "tsc",
+    "postinstall": "npm install && tsc",
     "release": "standard-version"
   },
   "keywords": [
@@ -23,7 +23,7 @@
     "game",
     "builder"
   ],
-  "dependencies": {
+  "devDependencies": {
     "@babel/core": "^7.3.4",
     "@babel/plugin-proposal-export-default-from": "^7.2.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
